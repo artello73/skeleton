@@ -23,6 +23,7 @@ describe('Stepper.svelte', () => {
 				// Props (buttons)
 				buttonBack: {},
 				buttonNext: {},
+				buttonRewind: {},
 				buttonComplete: {}
 			}
 		});
