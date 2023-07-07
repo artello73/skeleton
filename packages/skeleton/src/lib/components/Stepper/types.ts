@@ -10,6 +10,7 @@ export type StepperEvent = {
 	next: { step: number; state: StepperState };
 	step: { step: number; state: StepperState };
 	back: { step: number; state: StepperState };
+	rewind: { step: number; state: StepperState };
 	complete: { step: number; state: StepperState };
 };
 export type StepperEventDispatcher = EventDispatcher<StepperEvent>;

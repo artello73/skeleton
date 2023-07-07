@@ -37,6 +37,9 @@
 	export let buttonNext: CssClasses = getContext('buttonNext');
 	export let buttonNextType: 'submit' | 'reset' | 'button' = getContext('buttonNextType');
 	export let buttonNextLabel: string = getContext('buttonNextLabel');
+	export let buttonRewind: CssClasses = getContext('buttonRewind');
+	export let buttonRewindType: 'submit' | 'reset' | 'button' = getContext('buttonRewindType');
+	export let buttonRewindLabel: string = getContext('buttonRewindLabel');
 	export let buttonComplete: CssClasses = getContext('buttonComplete');
 	export let buttonCompleteType: 'submit' | 'reset' | 'button' = getContext('buttonCompleteType');
 	export let buttonCompleteLabel: string = getContext('buttonCompleteLabel');
@@ -66,6 +69,12 @@
 		$state.current--;
 		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
 		dispatchParent('back', { step: stepIndex, state: $state });
+		dispatchParent('step', { step: stepIndex, state: $state });
+	}
+	function onRewind() {
+		$state.current = 0;
+		/** @event { $state } back - Fires when the BACK button is pressed per step.  */
+		dispatchParent('rewind', { step: stepIndex, state: $state });
 		dispatchParent('step', { step: stepIndex, state: $state });
 	}
 	function onComplete() {
@@ -107,6 +116,10 @@
 					<!-- Button: Back -->
 					<button type={buttonBackType} class="btn {buttonBack}" on:click={onBack} disabled={$state.current === 0}>
 						{@html buttonBackLabel}
+					</button>
+					<!-- Button: Rewind -->
+					<button type={buttonRewindType} class="btn {buttonRewind}" on:click={onRewind} disabled={$state.current === 0}>
+						{@html buttonRewindLabel}
 					</button>
 				{/if}
 				{#if stepIndex < $state.total - 1}

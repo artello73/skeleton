@@ -46,6 +46,14 @@
 	/** Provide the HTML label content for the next button. */
 	export let buttonNextLabel = 'Next &rarr;';
 
+	// Button (rewind)
+	/** Provide arbitrary classes to style the next button. */
+	export let buttonRewind: CssClasses = 'variant-ghost';
+	/** Set the type of the next button. */
+	export let buttonRewindType: StepperButton = 'button';
+	/** Provide the HTML label content for the next button. */
+	export let buttonRewindLabel = '&#10226; Rewind';
+
 	// Button (complete)
 	/** Provide arbitrary classes to style the complete button. */
 	export let buttonComplete: CssClasses = 'variant-filled-primary';
@@ -77,6 +85,10 @@
 	setContext('buttonNext', buttonNext);
 	setContext('buttonNextType', buttonNextType);
 	setContext('buttonNextLabel', buttonNextLabel);
+	// ---
+	setContext('buttonRewind', buttonRewind);
+	setContext('buttonRewindType', buttonRewindType);
+	setContext('buttonRewindLabel', buttonRewindLabel);
 	// ---
 	setContext('buttonComplete', buttonComplete);
 	setContext('buttonCompleteType', buttonCompleteType);
